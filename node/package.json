@@ -1,0 +1,19 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "A product review web-community with a different aproach",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mohammad Ahmadi",
+  "license": "ISC",
+  "dependencies": {
+    "cookie-parser": "^1.4.1",
+    "express": "^4.13.4",
+    "googleapis": "^5.0.0",
+    "handlebars": "^4.0.5",
+    "mysql": "^2.10.2",
+    "sha1": "^1.1.1"
+  }
+}

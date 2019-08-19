@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">
+	<link rel="stylesheet" type="text/css" href=""/>
+	
+	<meta name="google-sign-in-client_id" value="594204839102-7r5sejasdqalk1gkqpcs8fr9pr2t4pv5.apps.googleusercontent.com">
+	<script src="js/platform.js"></script>
+	<!-- <script type="text/javascript" src="../public/js/google-api.js"></script> -->
+	
+	<script type="text/javascript">
+		gapi.load('oauth2', function () {
+			gapi.oauth2.init();
+		});
+		
+		function onSignIn(googleUser) {
+			var profile = googleUser.getBasicProfile();
+			console.log(   'ID: '        + profile.getId()         ); // Do not send to your backend! Use an ID token instead.
+			console.log(   'Name: '      + profile.getName()       );
+			console.log(   'Image URL: ' + profile.getImageUrl()   );
+			console.log(   'Email: '     + profile.getEmail()      );
+		}
+
+
+	</script>
+</head>
+
+<body>
+	<header></header>
+	
+	<div class="g-signin2" data-onsuccess="onSignIn"></div>
+	
+	<form action="https://accounts.google.com/o/oauth2/v2/auth?" method="GET">
+		<input type="hidden" name="client_id"       value="594204839102-7r5sejasdqalk1gkqpcs8fr9pr2t4pv5.apps.googleusercontent.com"/> <!-- obtain from the Developers Console -->
+		<input type="hidden" name="response_type"   value="code"/>
+		<input type="hidden" name="state"           value="9a039bb325ea5af81374b91c18c052c4e4ac581b"/>
+		<input type="hidden" name="scope"           value="email profile openid"/>
+		<input type="hidden" name="redirect_uri"    value="http://localhost/oauth/form.htm"/> 
+		<input type="hidden" name="prompt"          value="consent"/>
+		<input type="hidden" name="login_hint"      value=""/>
+		
+		<input type="hidden" name="" value=""/>
+		
+		
+		<input type="submit" value="submit"/>
+	</form>
+	
+	
+	<footer></footer>
+	
+<script type="text/javascript" src=""></script>
+</body>
+</html>
+
+
+
+<!-- https://accounts.google.com/o/oauth2/v2/auth?
+ client_id=424911365001.apps.googleusercontent.com&
+ response_type=code&
+ scope=openid%20email&
+ redirect_uri=https://oauth2-login-demo.example.com/code&
+ state=security_token%3D138r5719ru3e1%26url%3Dhttps://oauth2-login-demo.example.com/myHome&
+ login_hint=jsmith@example.com&
+ openid.realm=example.com&
+ hd=example.com -->
+ 
+ 
+ 
+ <!-- succesfull
+ 
+http://localhost/oauth/form.htm?
+state=9a039bb325ea5af81374b91c18c052c4e4ac581b&
+code=4/ma-MZBvvM1jVA0O0rnzlFuv8El82MRyTTLnau51tuw4&					authorization code, exchange for an access/refresh token (required for accessing apis)
+authuser=0&
+session_state=78ee8da08a0c2cd5ae9fb6822dc44a3f36a85548..0d7e&
+prompt=consent#
+ -->
+ 
+<!-- if user sais no
+
+https://oauth2-login-demo.appspot.com/auth?error=access_denied
+ 
+ -->
